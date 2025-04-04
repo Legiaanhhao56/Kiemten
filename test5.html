@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chọn "Có" hay "Không"</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .option {
+      display: inline-block;
+      margin: 20px;
+      padding: 10px 20px;
+      font-size: 20px; /* Kích thước font mặc định */
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent; /* Loại bỏ hiệu ứng nhấn 
+trên iOS */
+    }
+    .option:active {
+      transform: scale(0.95); /* Hiệu ứng nhấn */
+    }
+    .option:focus {
+      outline: none; /* Loại bỏ viền focus mặc định */
+    }
+  </style>
+</head>
+<body>
+  <button id="co" class="option">Có</button>
+  <button id="khong" class="option">Không</button>
+
+  <script>
+    const coButton = document.getElementById('co');
+    const khongButton = document.getElementById('khong');
+    
+    let coFontSize = 20;
+    let khongFontSize = 20;
+    
+    const updateSizes = () => {
+      coButton.style.fontSize = `${coFontSize}px`;
+      khongButton.style.fontSize = `${khongFontSize}px`;
+    };
+    updateSizes();
+
+    const handleKhong = () => {
+      coFontSize += 5; // Tăng kích thước chữ "Có"
+      khongFontSize = Math.max(10, khongFontSize - 5); // Giảm kích thước 
+chữ "Không", tối thiểu 10px
+      updateSizes();
+    };
+
+    const handleCo = () => {
+      alert('KIỂM TẼN');
+    };
+
+    // Gắn sự kiện trực tiếp cho nút
+    khongButton.addEventListener('click', (e) => {
+      e.preventDefault(); // Ngăn hành vi mặc định
+      handleKhong();
+    });
+
+    coButton.addEventListener('click', (e) => {
+      e.preventDefault(); // Ngăn hành vi mặc định
+      handleCo();
+    });
+  </script>
+</body>
+</html>
