@@ -11,16 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   updateSizes();
 
+  // Xử lý nhấp vào "Không"
   khongButton.addEventListener('click', (e) => {
     e.preventDefault();
-    coFontSize += 5;
-    khongFontSize = Math.max(10, khongFontSize - 5);
+    coFontSize += 5; // Phóng to chữ "Có"
+    khongFontSize = Math.max(10, khongFontSize - 5); // Thu nhỏ chữ "Không", tối thiểu 10px
     updateSizes();
   });
 
+  // Xử lý nhấp vào "Có"
   coButton.addEventListener('click', (e) => {
     e.preventDefault();
-    alert('KIỂM TẼN');
+    alert('KIỂM TẼN'); // Hiển thị thông báo
   });
 });
 
